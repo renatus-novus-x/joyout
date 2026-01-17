@@ -48,5 +48,6 @@ int main(int argc, char* argv[]) {
 
   platform_joyout_write4(0);
   printf("\nDone.\n");
+  platform_exit();
   return 0;
 }

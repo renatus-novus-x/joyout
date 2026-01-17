@@ -13,6 +13,7 @@
 #define CLOCKS_PER_SEC 100
 typedef uint32_t clock_t;
 
+static int usp_;
 
 /*
   Set this to 1 if your _iocs_bitsns() returns 0 when a key is pressed.
@@ -52,8 +53,13 @@ static inline uint32_t trap_ontime_cs(void){
 }
 
 static inline void platform_init(void){
+  usp_ = _iocs_b_super(0);
   /* Configure i8255 and make outputs released by default. */
   platform_joyout_init();
+}
+
+static inline void platform_exit(void){
+  _iocs_b_super(usp_);
 }
 
 static inline clock_t platform_clock(void){
