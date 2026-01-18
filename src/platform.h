@@ -84,23 +84,13 @@ static inline void platform_wait_next_tick(clock_t* now){
   *now = base + 1;
 }
 
-static inline unsigned char platform_gttrig(int no){
-  if (no == 0) { /* keyboard: SPACE (group6 bit5) */
-    return platform_bitsns_bit(6, 5);
-  } else {      /* joystick: A button */
-    no = no - 1;
-    return !(_iocs_joyget(no) & 0x20);
-  }
-}
-
 /*
   Keyboard helpers for this project.
 
   Key mapping is based on the BITSNS group/bit table:
-  group 0: bit0=ESC, bit1='1', bit2='2', bit3='3', bit4='4'
 */
 static inline uint8_t platform_kbd_esc_down(void){
-  return platform_bitsns_bit(0, 0);
+  return platform_bitsns_bit(0, 0);  /* keyboard: ESC (group0 bit1) */
 }
 
 static inline uint8_t platform_kbd_1234_mask(void){
