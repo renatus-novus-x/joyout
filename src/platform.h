@@ -90,7 +90,7 @@ static inline void platform_wait_next_tick(clock_t* now){
   Key mapping is based on the BITSNS group/bit table:
 */
 static inline uint8_t platform_kbd_esc_down(void){
-  return platform_bitsns_bit(0, 0);  /* keyboard: ESC (group0 bit1) */
+  return platform_bitsns_bit(0, 1);  /* keyboard: ESC (group0 bit1) */
 }
 
 static inline uint8_t platform_kbd_1234_mask(void){
