@@ -98,11 +98,11 @@ static inline uint8_t platform_kbd_1234_mask(void){
 #if PLATFORM_BITSNS_ACTIVE_LOW
   g0 = (uint8_t)(g0 ^ 0xFF);
 #endif
-  /* pack [1][2][3][4] into 4-bit: bit0=1, bit1=2, bit2=3, bit3=4 */
-  return (uint8_t)(((g0 >> 1) & 1) |
-                   (((g0 >> 2) & 1) << 1) |
-                   (((g0 >> 3) & 1) << 2) |
-                   (((g0 >> 4) & 1) << 3));
+  /* pack [1][2][3][4] into 4-bit: bit2=1, bit3=2, bit4=3, bit5=4 */
+  return (uint8_t)(( (g0 >> 2) & 1)       |
+                   (((g0 >> 3) & 1) << 1) |
+                   (((g0 >> 4) & 1) << 2) |
+                   (((g0 >> 5) & 1) << 3));
 }
 
 /*
