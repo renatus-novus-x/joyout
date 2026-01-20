@@ -43,3 +43,5 @@ XTAGS
 #emacs
 *~
 
+*.o
+*.x.elf

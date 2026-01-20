@@ -8,6 +8,7 @@
 #if X68K
 
 #include <x68k/iocs.h>
+#include <x68k/dos.h>
 
 #undef  CLOCKS_PER_SEC
 #define CLOCKS_PER_SEC 100
@@ -59,6 +60,7 @@ static inline void platform_init(void){
 }
 
 static inline void platform_exit(void){
+  _dos_kflushio(0xFF);
   _iocs_b_super(usp_);
 }
 
